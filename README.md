@@ -29,7 +29,7 @@ docker build -t <image_name> .
 docker run -p 5050:5050 -v /path/to/external_volume:/app/data <image_name>
 ```
 * Replace `/path/to/external_volume` with the actual path to the external volume on your machine.
-**  Replace <image_name> with your Docker image, previously created
+* Replace <image_name> with your Docker image, previously created
 
 6. Access the application in your web browser using the address `http://0.0.0.0:5050`
    Currently, only the following routes are implemented:
