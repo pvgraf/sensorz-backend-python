@@ -29,7 +29,7 @@ docker build -t <image_name> .
 docker run -p 5050:5050 -v /path/to/external_volume:/app/data <image_name>
 ```
 * Replace `/path/to/external_volume` with the actual path to the external volume on your machine.
-* *  Replace <image_name> with your Docker image, previously created
+**  Replace <image_name> with your Docker image, previously created
 
 6. Access the application in your web browser using the address `http://0.0.0.0:5050`
    Currently, only the following routes are implemented:
@@ -37,3 +37,14 @@ docker run -p 5050:5050 -v /path/to/external_volume:/app/data <image_name>
     - '/grades-by-subject/<subject>' (where `subject` one of the following `math`, `history` or `science`)
     - '/add-grades'
 
+    * For each implemented endpoint, there is an associated initial basic HTML page located under `templates` folder.
+
+## Configuration
+The application's configuration includes uWSGI server running as root with 2 workers, each utilizing 2 cores.
+It can be modified in the configuration file `uwsgi.ini`.
+```
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 8)
+spawned uWSGI worker 1 (pid: 9, cores: 2)
+spawned uWSGI worker 2 (pid: 10, cores: 2)
+```
