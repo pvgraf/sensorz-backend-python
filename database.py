@@ -6,6 +6,7 @@ This module contains the FDataBase class for interacting with the database.
 
 import statistics
 from models import User
+from typing import Union, Dict
 
 
 class FDataBase:
@@ -14,7 +15,7 @@ class FDataBase:
 
     Provides methods for adding, retrieving, and performing statistics on grades in the database.
     """
-    def __init__(self, db):
+    def __init__(self, db) -> None:
         self.__db = db
 
     def add_data(self, student_name, math_grade, science_grade, history_grade):
@@ -52,7 +53,7 @@ class FDataBase:
             print("An unexpected error occurred during the execution.", err)
             return False
 
-    def get_grade_by_id(self, student_id):
+    def get_grade_by_id(self, student_id) -> Union[Dict[str, Union[int, str]], None]:
         """
         Get grades by student ID from the database.
 
@@ -76,7 +77,7 @@ class FDataBase:
             print("An unexpected error occurred during the execution.", err)
         return None
 
-    def get_subject_stats(self, subject):
+    def get_subject_stats(self, subject) -> Union[Dict[str, Union[str, int]], None]:
         """
         Get statistics by subject from the database.
 
